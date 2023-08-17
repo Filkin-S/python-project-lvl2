@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "python-project-lvl2"
+version = "0.1.0"
+description = ""
+authors = ["Filkin-S <fsp1988@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "gendiff"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
