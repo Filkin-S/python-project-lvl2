@@ -16,4 +16,12 @@ def gendiff(file1, file2):
             remained.append((1, key, json.dumps(data2[key]).strip('"')))
     result = deleted + added + remained
     result.sort(key=lambda x: x[1])
+    return diff_to_string(result)
+
+
+def diff_to_string(diff):
+    signs = {-1: '-', 0: ' ', 1: '+'}
+    result = ''
+    for sign, key, value in diff:
+        result = result + f'{signs[sign]} {key}: {value}\n'
     return result
