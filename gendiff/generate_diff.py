@@ -16,7 +16,9 @@ def generate_diff(file1, file2):
             remained.append((1, key, json.dumps(data2[key]).strip('"')))
     result = deleted + added + remained
     result.sort(key=lambda x: x[1])
-    return diff_to_string(result)
+    diff = diff_to_string(result)
+    print(diff)
+    return diff
 
 
 def diff_to_string(diff):
