@@ -1,4 +1,15 @@
+import argparse
 import json
+
+
+parser = argparse.ArgumentParser(prog='gendiff')
+parser.add_argument('first_file')
+parser.add_argument('second_file')
+parser.add_argument('-f', '--format',
+                    help='set format of output',
+                    metavar='FORMAT')
+
+args = parser.parse_args()
 
 
 def generate_diff(file1, file2):
@@ -27,3 +38,6 @@ def diff_to_string(diff):
     for sign, key, value in diff:
         result = result + f'{signs[sign]} {key}: {value}\n'
     return result
+
+
+diff = generate_diff(args.first_file, args.second_file)
