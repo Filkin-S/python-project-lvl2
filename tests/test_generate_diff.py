@@ -1,4 +1,4 @@
-from gendiff import generate_diff
+from gendiff.engine import generate_diff
 
 
 def test_generate_diff_json():
