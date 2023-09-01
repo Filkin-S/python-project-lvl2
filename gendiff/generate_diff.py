@@ -1,5 +1,6 @@
 import argparse
 from gendiff.engine import generate_diff
+from gendiff.formatters.str_format import format_to_str
 
 
 parser = argparse.ArgumentParser(prog='gendiff')
@@ -11,4 +12,4 @@ parser.add_argument('-f', '--format',
 
 args = parser.parse_args()
 
-diff = generate_diff(args.first_file, args.second_file)
+diff = generate_diff(args.first_file, args.second_file, format_to_str)

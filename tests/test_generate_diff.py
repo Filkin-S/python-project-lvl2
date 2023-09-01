@@ -6,7 +6,8 @@ def test_generate_diff_json():
         expected = f.read()
 
     assert generate_diff('tests/fixtures/file1.json',
-                         'tests/fixtures/file2.json') == expected
+                         'tests/fixtures/file2.json'
+                         ) == expected
 
 
 def test_generate_diff_yml():
@@ -14,4 +15,5 @@ def test_generate_diff_yml():
         expected = f.read()
 
     assert generate_diff('tests/fixtures/file1.yml',
-                         'tests/fixtures/file2.yml') == expected
+                         'tests/fixtures/file2.yml'
+                         ) == expected
