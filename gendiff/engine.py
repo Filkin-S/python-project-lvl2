@@ -19,7 +19,8 @@ def compare_equal(key, value1, value2):
     if value1 == value2:
         diff = (make_pair('SAVE', key, value1), )
     else:
-        diff = (make_pair('REMOVE', key, value1), make_pair('ADD', key, value2))
+        diff = (make_pair('BEFORE', key, value1),
+                make_pair('AFTER', key, value2))
     return diff
 
 

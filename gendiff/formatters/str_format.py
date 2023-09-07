@@ -1,6 +1,8 @@
 SIGNS = {'REMOVE': '-',
          'ADD': '+',
-         'SAVE': ' '}
+         'SAVE': ' ',
+         'BEFORE': '-',
+         'AFTER': '+'}
 
 
 def sort_key(pair):
@@ -13,4 +15,4 @@ def format_to_str(diff):
     result = ''
     for (sign, key), value in diff:
         result = result + f'{SIGNS[sign]} {key}: {value}\n'
-    return result
+    return result.join(['{\n', '}'])
