@@ -22,7 +22,11 @@ def test_generate_diff_nested_yml():
                          ) == expected
 
 
-generate_diff('tests/fixtures/file1_nested.json',
-              'tests/fixtures/file2_nested.json',
-              stylish.make_stylish
-              )
+def test_generate_diff_nested_plain():
+    with open('tests/fixtures/result_nested_plain.txt') as f:
+        expected = f.read()
+
+    assert generate_diff('tests/fixtures/file1_nested.json',
+                         'tests/fixtures/file2_nested.json',
+                         plain.make_plain
+                         ) == expected

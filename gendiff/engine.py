@@ -1,4 +1,3 @@
-import json
 
 from gendiff.parsers import parsed
 
@@ -6,6 +5,7 @@ from gendiff.parsers import parsed
 def generate_diff(file1, file2, formatter):
     data1, data2 = parsed(file1), parsed(file2)
     diff = make_diff(data1, data2)
+    print(diff)
     formatted_diff = formatter(diff)
     print(formatted_diff)
     return formatted_diff
@@ -50,4 +50,4 @@ def flatten(value):
             v = flatten(v)
             lines.append(make_pair('SAVE', k, v))
         return lines
-    return json.dumps(value).strip('"')
+    return value

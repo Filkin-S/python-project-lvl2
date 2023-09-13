@@ -1,5 +1,5 @@
 import itertools
-
+import json
 
 SIGNS = {'REMOVE': '-',
          'ADD': '+',
@@ -22,7 +22,7 @@ def make_stylish(diff, replacer=' ', count=2):
 
     def iter_(current_value, depth):
         if not isinstance(current_value, list):
-            return str(current_value)
+            return json.dumps(current_value).strip('"')
 
         deep_indent_size = depth + count
         deep_indent = replacer * (deep_indent_size + depth)
