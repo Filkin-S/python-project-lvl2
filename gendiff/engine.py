@@ -1,14 +1,26 @@
 
 from gendiff.parsers import parsed
 from gendiff.formatters.stylish import make_stylish
+from gendiff.formatters.plain import make_plain
+from gendiff.formatters.json import make_json
 
 
-def generate_diff(file1, file2, formatter=make_stylish):
+def generate_diff(file1, file2, format='stylish'):
+    formatter = turn_format(format)
     data1, data2 = parsed(file1), parsed(file2)
     diff = make_diff(data1, data2)
     formatted_diff = formatter(diff).rstrip()
     print(formatted_diff)
     return formatted_diff
+
+
+def turn_format(argument):
+    if argument == 'plain':
+        return make_plain
+    elif argument == 'json':
+        return make_json
+    else:
+        return make_stylish
 
 
 def is_child(value1, value2):
