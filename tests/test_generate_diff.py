@@ -1,5 +1,4 @@
 from gendiff import engine
-from gendiff.formatters import plain, stylish
 
 
 def test_generate_diff_nested_json():
@@ -7,8 +6,7 @@ def test_generate_diff_nested_json():
         expected = f.read()
 
     assert engine.generate_diff('tests/fixtures/file1_nested.json',
-                                'tests/fixtures/file2_nested.json',
-                                stylish.make_stylish
+                                'tests/fixtures/file2_nested.json'
                                 ) == expected
 
 
@@ -17,8 +15,7 @@ def test_generate_diff_nested_yml():
         expected = f.read()
 
     assert engine.generate_diff('tests/fixtures/file1_nested.yml',
-                                'tests/fixtures/file2_nested.yml',
-                                stylish.make_stylish
+                                'tests/fixtures/file2_nested.yml'
                                 ) == expected
 
 
@@ -28,7 +25,7 @@ def test_generate_diff_nested_plain():
 
     assert engine.generate_diff('tests/fixtures/file1_nested.json',
                                 'tests/fixtures/file2_nested.json',
-                                plain.make_plain
+                                'plain'
                                 ) == expected
 
 
@@ -38,7 +35,7 @@ def test_generate_diff_hexlet_json_stylish():
 
     assert engine.generate_diff('tests/fixtures/file1.json',
                                 'tests/fixtures/file2.json',
-                                stylish.make_stylish
+                                'stylish'
                                 ) == expected
 
 
@@ -47,8 +44,7 @@ def test_generate_diff_hexlet_yaml_stylish():
         expected = f.read()
 
     assert engine.generate_diff('tests/fixtures/file1.yml',
-                                'tests/fixtures/file2.yml',
-                                stylish.make_stylish
+                                'tests/fixtures/file2.yml'
                                 ) == expected
 
 
@@ -58,7 +54,7 @@ def test_generate_diff_hexlet_json_plain():
 
     assert engine.generate_diff('tests/fixtures/file1.json',
                                 'tests/fixtures/file2.json',
-                                plain.make_plain
+                                'plain'
                                 ) == expected
 
 
@@ -68,5 +64,5 @@ def test_generate_diff_hexlet_yaml_plain():
 
     assert engine.generate_diff('tests/fixtures/file1.yml',
                                 'tests/fixtures/file2.yml',
-                                plain.make_plain
+                                'plain'
                                 ) == expected
