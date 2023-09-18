@@ -1,8 +1,9 @@
 
 from gendiff.parsers import parsed
+from gendiff.formatters.stylish import make_stylish
 
 
-def generate_diff(file1, file2, formatter):
+def generate_diff(file1, file2, formatter=make_stylish):
     data1, data2 = parsed(file1), parsed(file2)
     diff = make_diff(data1, data2)
     formatted_diff = formatter(diff).rstrip()
