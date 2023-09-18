@@ -1,6 +1,6 @@
 import json
 
-from gendiff.engine import make_pair
+from gendiff import engine
 from gendiff.formatters.stylish import sort_key
 
 
@@ -21,18 +21,18 @@ def deepen(key, value):
     for element in value:
         (status_v, key_v), value_v = element
         new_key = '.'.join([key, key_v])
-        new_diff.append(make_pair(status_v, new_key, value_v))
+        new_diff.append(engine.make_pair(status_v, new_key, value_v))
     return new_diff
 
 
 def select(element):
     (status, key), value = element
     if (status != 'REMOVE' or status != 'SAVE') and isinstance(value, list):
-        element = make_pair(status, key, '[complex value]')
+        element = engine.make_pair(status, key, '[complex value]')
         return make_line(element)
     elif status == 'SAVE':
         return ''
-    element = make_pair(status, key, json.dumps(value).replace('"', "'"))
+    element = engine.make_pair(status, key, json.dumps(value).replace('"', "'"))
     return make_line(element)
 
 
