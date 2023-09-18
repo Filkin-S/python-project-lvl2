@@ -10,7 +10,6 @@ def generate_diff(file1, file2, format='stylish'):
     data1, data2 = parsed(file1), parsed(file2)
     diff = make_diff(data1, data2)
     formatted_diff = formatter(diff).rstrip()
-    print(formatted_diff)
     return formatted_diff
 
 
